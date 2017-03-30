@@ -4,11 +4,11 @@ import subprocess
 
 ###################################################################
 # load_cmd = 1
-user = '5c44ea9d-5631-409d-94d8-1df2022e6530'
-passw = 'QZhew5uzMEgvkSxfl54BsbRCivtV2nCDb1lxyfxPV9S1Icd2tcR6Byp4ZYydGl3D'
+user = ''
+passw = ''
 
-contid = '94bfcf58-a4ca-4132-a523-581c7b91ef9a'
-port = 8989
+contid = ''
+port = ''
 ssr = 'ShadowsocksR-dotnet4.0.exe'
 ###################################################################
 
