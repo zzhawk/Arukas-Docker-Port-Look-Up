@@ -4,11 +4,11 @@ import subprocess
 
 ###################################################################
 # load_cmd = 1
-user = ''
-passw = ''
+user = '(your API keys "Token")'
+passw = '(your API keys "Secret")'
 
-contid = ''
-port = ''
+contid = '(Container ID)'
+port = '(SSR Port)'
 ssr = 'ShadowsocksR-dotnet4.0.exe'
 ###################################################################
 
