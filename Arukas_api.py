@@ -1,0 +1,61 @@
+import requests
+import json
+import subprocess
+
+###################################################################
+# load_cmd = 1
+user = '5c44ea9d-5631-409d-94d8-1df2022e6530'
+passw = 'QZhew5uzMEgvkSxfl54BsbRCivtV2nCDb1lxyfxPV9S1Icd2tcR6Byp4ZYydGl3D'
+
+contid = '94bfcf58-a4ca-4132-a523-581c7b91ef9a'
+port = 8989
+ssr = 'ShadowsocksR-dotnet4.0.exe'
+###################################################################
+
+
+url = "https://app.arukas.io/api/containers/"
+header = {'content-type': 'application/json'}
+
+response = requests.get(url + contid, auth=(user, passw), headers = header)
+
+json_data = json.loads(response.content)
+
+sub_json_data = json_data["data"]["attributes"];
+# print json.dumps(sub_json_data, indent=4, sort_keys=True)
+
+cmd = sub_json_data['cmd']
+
+for x in sub_json_data["port_mappings"][0]:
+    if x['container_port'] == port:
+        output_port = x['service_port']
+        output_host = x['host']
+
+print "Port = " output_port
+
+if output_host.startswith("seaof-"):
+    output_host = output_host[6:]
+output_host = output_host.split(".")[0]
+output_host = output_host.replace("-",".")
+
+print "IP address = "output_host
+###################################################################
+
+in_file = open('gui-config.json')
+indata = in_file.read()
+out_file = open('gui-config.json.temp', 'w')
+out_file.write(indata)
+
+json_data_local = json.loads(indata)
+# json_data_local['configs']['server'] = output_host;
+# json_data_local['configs']['server_port'] = output_port;
+
+for x in json_data_local["configs"]:
+        x['server_port'] = output_port
+        x['server'] = output_host
+
+with open('gui-config.json', 'w') as outfile:
+    json.dump(json_data_local, outfile, indent=4, sort_keys=True)
+
+###################################################################
+subprocess.call([ssr])
+print "Parameter loaded, hit close(x) to exit"
