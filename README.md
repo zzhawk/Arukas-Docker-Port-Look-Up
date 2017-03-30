@@ -22,6 +22,8 @@ Make sure all the parameters matches, this script only modify the IP address and
 ## Enjoy
 If all set up correctly, you will see "Parameter loaded, hit close(x) to exit" in the CMD window. Otherwise, go back and re-check all the steps above.
 
+Manually open the SSR clinet(the JASON files seems like is blocked by the script... so any changes in SSR clinet will not actually changes...not sure whats going on, need time looking into it)
+
 Feel free to trim the bottom part for "IP address and port number" lookup only.
 
 First time writing python. If you find and bugs or have any suggestions, let me know. Thanks for reading!
