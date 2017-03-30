@@ -1,5 +1,5 @@
 # Arukas-Docker-Port-Look-Up
-This script will call the SSR client with the updated IP address and port number
+This script will update IP address and port number for SSR clinet
 
 ## Get ready
 Install Python 2.7 first. Make sure it works.
