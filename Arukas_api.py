@@ -30,14 +30,14 @@ for x in sub_json_data["port_mappings"][0]:
         output_port = x['service_port']
         output_host = x['host']
 
-print "Port = " output_port
+print output_port
 
 if output_host.startswith("seaof-"):
     output_host = output_host[6:]
 output_host = output_host.split(".")[0]
 output_host = output_host.replace("-",".")
 
-print "IP address = "output_host
+print output_host
 ###################################################################
 
 in_file = open('gui-config.json')
