@@ -9,9 +9,8 @@ passw = '(your API keys "Secret")'
 
 contid = '(Container ID)'
 port = '(SSR Port)'
-ssr = 'ShadowsocksR-dotnet4.0.exe'
+# ssr = 'ShadowsocksR-dotnet4.0.exe'
 ###################################################################
-
 
 url = "https://app.arukas.io/api/containers/"
 header = {'content-type': 'application/json'}
@@ -30,14 +29,14 @@ for x in sub_json_data["port_mappings"][0]:
         output_port = x['service_port']
         output_host = x['host']
 
-print output_port
+print "Port = " + str(output_port)
 
 if output_host.startswith("seaof-"):
     output_host = output_host[6:]
 output_host = output_host.split(".")[0]
 output_host = output_host.replace("-",".")
 
-print output_host
+print "IP address = " + output_host
 ###################################################################
 
 in_file = open('gui-config.json')
@@ -57,5 +56,5 @@ with open('gui-config.json', 'w') as outfile:
     json.dump(json_data_local, outfile, indent=4, sort_keys=True)
 
 ###################################################################
-subprocess.call([ssr])
-print "Parameter loaded, hit close(x) to exit"
+# subprocess.Popen([ssr])
+raw_input("Parameter loaded, hit close(x) to exit")
