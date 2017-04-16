@@ -25,9 +25,11 @@ Make sure all the parameters on SSR Windows clinet matches your setups in the se
 Make sure you modify this part in the script. If you don't know the parameters, ask your seriver "master"
 
 user = '(your API keys "Token")'
+
 passw = '(your API keys "Secret")'
 
 contid = '(Container ID)'
+
 port = '(SSR Port)'
 
 
